@@ -1,0 +1,167 @@
+<div class="row">
+  <!-- [ sample-page ] start -->
+  <!--<div class="col-md-6 col-xl-3" *ngFor="let task of card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="mb-2 f-w-400 text-muted">{{ task.title }}</h6>
+        <h4 class="mb-3">
+          {{ task.amount }}
+          <span class="badge {{ task.background }} border {{ task.border }} "><i class="{{ task.icon }}"></i> {{ task.percentage }}</span>
+        </h4>
+        <p class="mb-0 text-muted text-sm">
+          You made an extra
+          <span class="{{ task.color }}">{{ task.number }}</span> this year
+        </p>
+      </div>
+    </div>
+  </div>-->
+
+  <!-- <div class="col-md-12 col-xl-8">
+     <div class="d-flex align-items-center justify-content-between mb-3">
+      <h5 class="mb-0">Unique Visitor</h5>
+      <ul ngbNav aria-busy="true" #nav="ngbNav" class="nav-pills justify-content-end mb-0" (navChange)="onNavChange($event)">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Week</a>
+          <ng-template ngbNavContent>
+            <div id="visitor-chart"></div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Month</a>
+          <ng-template ngbNavContent>
+            <div id="visitor-chart-1"></div>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div [ngbNavOutlet]="nav"></div>
+      </div>
+    </div> 
+  </div>-->
+  <div class="col-md-9">
+    <div class="row"></div>
+    <div class="col-md-12">
+      <!-- <h2 class="mb-3">Users</h2> -->
+      <div class="card tbl-card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover table-borderless mb-0 user-table">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Phone Number</th>
+                  <th>Email</th>
+                  <th>Delete</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of resTableData">
+                  <td>
+                    <a href="javascript:" class="text-muted">{{
+                      user.userId
+                    }}</a>
+                  </td>
+                  <td>{{ user.userFirstName }}</td>
+                  <td >{{ user.userLastName }}</td>
+                  <td>
+                    <span >{{ user.userPhone }}</span>
+                  </td>
+                  <td>
+                    <span >{{ user.userEmail }}</span>
+                  </td>
+                  <td><i class="ti ti-trash"  (click)="deleteUser(user.userId)"></i></td>
+                  <td>
+                    <i
+                      class="ti ti-pencil btn-outline-primary"
+                      (click)="editUser(user)"
+                    ></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+  <div class="col-md-12">
+    <!-- <pre *ngIf="user">{{user.value | json}}</pre> -->
+    <ng-container *ngIf="user">
+      <h2 class="py-4">Edit User</h2>
+      <form [formGroup]="user">
+        <div class="form-group row">
+          <label for="userFirstName" class="col-5 col-form-label"
+            >First Name</label
+          >
+          <div class="col-7">
+            <input
+              type="text"
+              class="form-control"
+              id="userFirstName"
+              formControlName="userFirstName"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="userLastName" class="col-sm-5 col-form-label"
+            >Last Name</label
+          >
+          <div class="col-sm-7">
+            <input
+              type="text"
+              class="form-control"
+              id="userLastName"
+              formControlName="userLastName"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="userPhone" class="col-sm-5 col-form-label">Phone</label>
+          <div class="col-sm-7">
+            <input
+              type="text"
+              class="form-control"
+              id="userPhone"
+              formControlName="userPhone"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="userEmail" class="col-sm-5 col-form-label">Email</label>
+          <div class="col-sm-7">
+            <input
+              type="text"
+              class="form-control"
+              id="userEmail"
+              formControlName="userEmail"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="row">
+            <div class="col-6">
+              <button type="submit" class="btn btn-primary col-12" (click)="save()">
+                Save
+              </button>
+            </div>
+            <div class="col-6">
+              <button
+                type="reset"
+                class="btn btn-outline-primary col-12"
+                (click)="cancel()"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <div class="auth-form">
+      <div class="auth-header">
+        <a href="javascript:"
+          ><img src="assets/images/logo-dark.svg" alt="logo img"
+        /></a>
+      </div>
+      <div class="card my-5">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="mb-0"><b>Sign In</b></h3>
+            <a [routerLink]="['/register']" class="link-primary"
+              >Don't have an account?</a
+            >
+          </div>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <!-- <div class="form-group mb-3">
+              <label class="form-label" for="emailAddress">Email Address*</label>
+              <input type="email" class="form-control" id="emailAddress" placeholder="Email Address" />
+            </div> -->
+            <div class="form-group mb-3">
+              <label>Email</label>
+              <input
+                type="text"
+                formControlName="user_email"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['user_email'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['user_email'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['user_email'].errors['required']">
+                  Email is required
+                </div>
+                <div *ngIf="f['user_email'].errors['user_email']">Email is invalid</div>
+              </div>
+            </div>
+            <!-- <div class="form-group mb-3">
+              <label class="form-label" for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Password"
+              />
+            </div> -->
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                formControlName="user_password"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['user_password'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['user_password'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['user_password'].errors['required']">
+                  Password is required
+                </div>
+                <div *ngIf="f['user_password'].errors['minlength']">
+                  Password must be at least 6 characters
+                </div>
+                <div *ngIf="f['user_password'].errors['maxlength']">
+                  Username must not exceed 40 characters
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-12">
+              <button type="submit" class="btn btn-primary col-6">Login</button>
+              <button
+              type="button"
+              (click)="onReset()"
+              class="btn btn-warning float-right col-6"
+            >
+              Reset
+            </button>
+            </div>
+          </form>
+          <p class="mt-4 text-sm text-muted">
+            By Signing up, you agree to our
+            <a href="javascript:" class="text-primary"> Terms of Service </a>
+            and <a href="javascript:" class="text-primary"> Privacy Policy</a>
+          </p>
+        </div>
+      </div>
+      <div class="auth-footer row">
+        <!-- <div class=""> -->
+        <div class="col my-1">
+          <p class="m-0">
+            Copyright © <a href="#" target="_blank">Chikankari</a>
+          </p>
+        </div>
+        <div class="col-auto my-1">
+          <ul class="list-inline footer-link mb-0">
+            <li class="list-inline-item">
+              <a href="#" target="_blank">Home</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" target="_blank">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" target="_blank">Contact us</a>
+            </li>
+          </ul>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>

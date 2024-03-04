@@ -1,0 +1,26 @@
+[
+  {
+      "userId": 1,
+      "userPassword": "$2b$10$Q8aJYcxnL.9icMDkWaVG7OUYSdUdAP76nU8h5xfXa4BVdJHqhp3om",
+      "userFirstName": "raja",
+      "userLastName": "Dastidar",
+      "userPhone": 123456,
+      "userEmail": "raja@gmail.com"
+  },
+  {
+      "userId": 2,
+      "userPassword": "$2b$10$.OBy5oDu7PNaaHN5tLNjae/YqljLkGv2AVlHCysLXbNK5CmcRCTZG",
+      "userFirstName": "Raja",
+      "userLastName": "D1astidar",
+      "userPhone": 1234,
+      "userEmail": "ram1@gmail.com"
+  },
+  {
+      "userId": 3,
+      "userPassword": "$2b$10$bDY3UcpwoCdDKbitQAp/auW15BjEig0W/ME64Veby3JDmsQupjLE6",
+      "userFirstName": "Raja",
+      "userLastName": "D1astidar",
+      "userPhone": 1234,
+      "userEmail": "ram2@gmail.com"
+  }
+]

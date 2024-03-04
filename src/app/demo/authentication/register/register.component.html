@@ -1,0 +1,258 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <div class="auth-form">
+      <div class="auth-header">
+        <a href="javascript:"
+          ><img src="assets/images/logo-dark.svg" alt="logo img"
+        /></a>
+      </div>
+      <div class="card my-5">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="mb-0"><b>Sign up</b></h3>
+            <a [routerLink]="['/login']" class="link-primary"
+              >Already have an account?</a
+            >
+          </div>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group mb-3">
+                  <label class="form-label" for="user_first_name">First Name*</label>
+                  <!-- <input type="text" class="form-control" id="firstName" placeholder="First Name" /> -->
+                  <input
+                    type="text"
+                    formControlName="user_first_name"
+                    class="form-control"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['user_first_name'].errors
+                    }"
+                  />
+                  <div
+                    *ngIf="submitted && f['user_first_name'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['user_first_name'].errors['required']">
+                      First name is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group mb-3">
+                  <label class="form-label" for="user_last_name">Last Name*</label>
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    placeholder="Last Name"
+                  /> -->
+                  <input
+                    type="text"
+                    formControlName="user_last_name"
+                    class="form-control"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['user_last_name'].errors
+                    }"
+                  />
+                  <div
+                    *ngIf="submitted && f['user_last_name'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['user_last_name'].errors['required']">
+                      Last name is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label class="form-label" for="user_phone">Phone Number*</label>
+              <!-- <input
+                type="text"
+                class="form-control"
+                id="company"
+                placeholder="Company"
+              /> -->
+              <input
+                type="text"
+                formControlName="user_phone"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['user_phone'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['user_phone'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['user_phone'].errors['required']">
+                  Phone number is required
+                </div>
+                <div *ngIf="f['user_phone'].errors['minLength']">
+                  Phone must not exceed 10 characters
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label class="form-label" for="emailAddress"
+                >Email Address*</label
+              >
+              <!-- <input
+                type="email"
+                class="form-control"
+                id="emailAddress"
+                placeholder="Email Address"
+              /> -->
+              <input
+                type="text"
+                formControlName="user_email"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid': submitted && f['user_email'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && f['user_email'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['user_email'].errors['required']">
+                  Email is required
+                </div>
+                <div *ngIf="f['user_email'].errors['email']">
+                  Email is invalid
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label class="form-label" for="user_password">Password*</label>
+              <!-- <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Password"
+              /> -->
+              <input
+                type="password"
+                formControlName="user_password"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['user_password'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['user_password'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['user_password'].errors['required']">
+                  Password is required
+                </div>
+                <div *ngIf="f['user_password'].errors['minlength']">
+                  Password must be at least 6 characters
+                </div>
+                <div *ngIf="f['user_password'].errors['maxlength']">
+                  Username must not exceed 40 characters
+                </div>
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <label>Confirm Password*</label>
+              <input
+                type="password"
+                formControlName="confirmPassword"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid': submitted && f['confirmPassword'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && f['confirmPassword'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['confirmPassword'].errors['required']">
+                  Confirm Password is required
+                </div>
+                <div *ngIf="f['confirmPassword'].errors['matching']">
+                  Confirm Password does not match
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                formControlName="acceptTerms"
+                class="form-check-input"
+                [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+              />
+              <label for="acceptTerms" class="form-check-label"
+                >I have read and agree to the Terms</label
+              >
+              <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">
+                Accept Terms is required
+              </div>
+            </div> -->
+            <div class="form-group d-flex">
+              <button type="submit" class="btn btn-primary col-6">Register</button>
+              <button
+                type="button"
+                (click)="onReset()"
+                class="btn btn-warning float-right col-6"
+              >
+                Reset
+              </button>
+            </div>
+            
+          </form>
+          
+          <!-- <div class="saprator mt-3">
+            <span>Sign up with</span>
+          </div> -->
+          <div class="row">
+            <div class="col-4">
+              <!-- <div class="d-grid">
+                <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
+                  <img src="assets/images/authentication/google.svg" alt="google img" />
+                  <span class="d-none d-sm-inline-block"> Google</span>
+                </button>
+              </div> -->
+            </div>
+            <div class="col-4">
+              <!-- <div class="d-grid">
+                <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
+                  <img src="assets/images/authentication/twitter.svg" alt="twitter img" />
+                  <span class="d-none d-sm-inline-block"> Twitter</span>
+                </button>
+              </div> -->
+            </div>
+            <div class="col-4">
+              <!-- <div class="d-grid">
+                <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
+                  <img src="assets/images/authentication/facebook.svg" alt="facebook img" />
+                  <span class="d-none d-sm-inline-block"> Facebook</span>
+                </button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="auth-footer row">
+        <!-- <div class=""> -->
+        <div class="col my-1">
+          <p class="m-0">
+            Copyright © <a href="#" target="_blank">Chikankari</a>
+          </p>
+        </div>
+        <div class="col-auto my-1">
+          <ul class="list-inline footer-link mb-0">
+            <li class="list-inline-item">
+              <a href="#" target="_blank">Home</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" target="_blank">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" target="_blank">Contact us</a>
+            </li>
+          </ul>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
